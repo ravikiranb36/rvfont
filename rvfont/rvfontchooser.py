@@ -24,13 +24,11 @@ class FontChooser(Tk):
         self.selected_font = StringVar()
         available_fonts=list(font.families())
         available_fonts.sort()
-        print(available_fonts)
         self.choose_font=ttk.Combobox(self, width=20, textvariable=self.selected_font, values=available_fonts,)
         self.choose_font.current(31)
         self.choose_font.place(x=10, y=20)
         self.choose_font.bind("<Key>",lambda f:self.FontSearch())
         text_sizes = [i for i in range(0,24,2)]+[i for i in range(24,80,4)]
-        print(text_sizes)
         self.selected_size = IntVar()
         self.default_size  = 5
         self.choose_size=ttk.Combobox(self, width=2, values= text_sizes, textvariable=self.selected_size)
@@ -52,14 +50,12 @@ class FontChooser(Tk):
         self.mainloop()
     def FontSearch(self):
         values = []
-        print(self.selected_font.get())
         for i in font.families():
-            #print(font.families())
             s=re.match(r"^%s"%(self.selected_font.get()),i, re.I)
             if s:
                 values.append(i)
         self.choose_font["values"]=values
-        #self.choose_font.tk_focusFollowsMouse()
+        self.choose_font.tk_focusFollowsMouse()
 
     def Bold(self):
         if self.weight == "bold":
@@ -113,9 +109,7 @@ class FontChooser(Tk):
 def FontDialog():
     f=FontChooser()
     if f.fonts:
-        print(f.fonts)
         return f.fonts
     else:
-        print(f.fonts)
         return f.fonts
 #FontDialog()
