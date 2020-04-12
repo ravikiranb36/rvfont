@@ -1,7 +1,7 @@
-RvFont Chooser for python\
+Fontchooser for python GUI or tkinter
 
 To install module : pip install rvfont\
-Latest version = "1.0"
+Latest version = "1.0.1"
 
 Example code:
 
